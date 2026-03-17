@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sebastien A. Renault — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0D1F3C;
+      --navy-mid: #1A3358;
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --off-white: #F7F5F0;
+      --text-dark: #1A1A2E;
+      --text-muted: #5A6478;
+      --border: rgba(201,168,76,0.25);
+    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--off-white); color: var(--text-dark); }
+
+    nav {
+      background: var(--navy);
+      padding: 0 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--gold);
+    }
+    .nav-logo { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 20px; letter-spacing: 0.04em; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 400; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold-light); }
+
+    .hero {
+      background: var(--navy);
+      padding: 5rem 3rem 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      border-bottom: 1px solid var(--gold);
+    }
+    .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
+    .hero-eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+    .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); color: #fff; line-height: 1.15; margin-top: 0.5rem; }
+    .hero-sub { font-size: 15px; color: rgba(255,255,255,0.6); max-width: 500px; line-height: 1.7; margin-top: 0.5rem; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1rem; }
+    .tag { font-size: 11px; padding: 4px 12px; border: 0.5px solid var(--gold); color: var(--gold-light); letter-spacing: 0.07em; text-transform: uppercase; }
+    .hero-links { display: flex; gap: 1rem; margin-top: 1.5rem; }
+    .btn-primary { background: var(--gold); color: var(--navy); font-size: 13px; padding: 10px 24px; text-decoration: none; font-weight: 500; letter-spacing: 0.05em; font-family: 'DM Sans', sans-serif; border: none; cursor: pointer; display: inline-block; transition: background 0.2s; }
+    .btn-secondary { background: transparent; color: var(--gold); font-size: 13px; padding: 10px 24px; text-decoration: none; font-weight: 400; letter-spacing: 0.05em; border: 0.5px solid var(--gold); cursor: pointer; font-family: 'DM Sans', sans-serif; display: inline-block; transition: background 0.2s; }
+    .btn-primary:hover { background: var(--gold-light); }
+    .btn-secondary:hover { background: rgba(201,168,76,0.1); }
+
+    main { max-width: 1100px; margin: 0 auto; padding: 3rem 3rem 4rem; }
+
+    section { margin-bottom: 4rem; }
+    .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+    .section-line { flex: 1; height: 0.5px; background: var(--border); background-color: #DDD9CF; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--navy); white-space: nowrap; }
+
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
+    .project-card {
+      background: #fff;
+      border: 0.5px solid #DDD9CF;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: border-color 0.2s;
+    }
+    .project-card:hover { border-color: var(--gold); }
+    .project-icon { width: 36px; height: 36px; background: var(--navy); display: flex; align-items: center; justify-content: center; }
+    .project-icon svg { width: 18px; height: 18px; fill: var(--gold); }
+    .project-name { font-weight: 500; font-size: 15px; color: var(--text-dark); }
+    .project-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+    .project-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 0.5rem; }
+    .chip { font-size: 11px; padding: 3px 10px; background: var(--off-white); border: 0.5px solid #DDD9CF; color: var(--text-muted); letter-spacing: 0.04em; }
+    .project-link { font-size: 12px; color: var(--gold); text-decoration: none; letter-spacing: 0.05em; font-weight: 500; margin-top: 0.25rem; }
+    .project-link:hover { color: var(--navy); }
+
+    .exp-item { display: grid; grid-template-columns: 140px 1fr; gap: 2rem; padding: 1.75rem 0; border-top: 0.5px solid #DDD9CF; }
+    .exp-item:last-child { border-bottom: 0.5px solid #DDD9CF; }
+    .exp-date { font-size: 12px; color: var(--text-muted); letter-spacing: 0.04em; padding-top: 3px; }
+    .exp-role { font-weight: 500; font-size: 15px; color: var(--text-dark); }
+    .exp-company { font-size: 13px; color: var(--gold); margin: 2px 0 8px; font-weight: 400; }
+    .exp-bullets { list-style: none; padding: 0; }
+    .exp-bullets li { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-left: 16px; position: relative; margin-bottom: 4px; }
+    .exp-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-size: 11px; }
+
+    .edu-card { background: #fff; border: 0.5px solid #DDD9CF; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; }
+    .edu-degree { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--navy); }
+    .edu-school { font-size: 13px; color: var(--text-muted); margin: 4px 0 8px; }
+    .edu-gpa { font-size: 13px; color: var(--text-muted); }
+    .edu-gpa span { font-weight: 500; color: var(--text-dark); }
+    .course-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.6rem; margin-top: 1.5rem; }
+    .course-pill { font-size: 12px; padding: 8px 14px; background: var(--off-white); border: 0.5px solid #DDD9CF; color: var(--text-muted); line-height: 1.4; }
+    .course-pill strong { display: block; color: var(--text-dark); font-weight: 500; font-size: 11px; letter-spacing: 0.03em; margin-bottom: 2px; }
+
+    .skills-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-badge { font-size: 12px; padding: 6px 14px; border: 0.5px solid #DDD9CF; background: #fff; color: var(--text-dark); letter-spacing: 0.03em; }
+
+    .subsection-label { font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); font-weight: 400; margin-bottom: 1rem; }
+
+    footer { background: var(--navy); color: rgba(255,255,255,0.45); font-size: 12px; text-align: center; padding: 1.5rem; letter-spacing: 0.04em; border-top: 1px solid var(--gold); }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 1.5rem; }
+      .hero { padding: 3rem 1.5rem 2.5rem; }
+      main { padding: 2rem 1.5rem 3rem; }
+      .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="nav-logo">S. Renault</span>
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Computer Science &amp; Portfolio</p>
+      <h1 class="hero-name">Sebastien A.<br>Renault</h1>
+      <p class="hero-sub">CS student at Christopher Newport University, graduating 2026. Interested in systems programming, emulation, and software engineering.</p>
+      <div class="hero-tags">
+        <span class="tag">Systems Programming</span>
+        <span class="tag">Software Engineering</span>
+        <span class="tag">Emulation</span>
+        <span class="tag">Algorithms</span>
+      </div>
+      <div class="hero-links">
+        <a class="btn-primary" href="https://github.com/srenault93" target="_blank">GitHub Profile</a>
+        <a class="btn-secondary" href="mailto:">Contact Me</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <section id="projects">
+      <div class="section-header">
+        <h2 class="section-title">Projects</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+          </div>
+          <div class="project-name">CNU 2026 Capstone</div>
+          <p class="project-desc">Senior capstone project showcasing full-cycle software development skills acquired throughout the CS program.</p>
+          <div class="project-chips">
+            <span class="chip">Capstone</span>
+            <span class="chip">Software Engineering</span>
+          </div>
+          <a class="project-link" href="https://github.com/srenault93/CNU_2026_CAPSTONE" target="_blank">View on GitHub →</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">
+            <svg viewBox="0 0 24 24"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm7 14l7-7-1.4-1.4L12 14.2l-3.6-3.6L7 12l5 5z"/></svg>
+          </div>
+          <div class="project-name">Chip-8 Emulator</div>
+          <p class="project-desc">A fully functional Chip-8 emulator built from scratch — implements the complete instruction set, display, input handling, and sound timers.</p>
+          <div class="project-chips">
+            <span class="chip">C / C++</span>
+            <span class="chip">Emulation</span>
+            <span class="chip">Low-level Systems</span>
+          </div>
+          <a class="project-link" href="https://github.com/srenault93/Chip-8-Emulator" target="_blank">View on GitHub →</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 11H7v-2h8v2zm3-4H7V9h11v2z"/></svg>
+          </div>
+          <div class="project-name">WebWS</div>
+          <p class="project-desc">A web-based project demonstrating front-end and back-end integration skills with real-time web service functionality.</p>
+          <div class="project-chips">
+            <span class="chip">Web</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">Networking</span>
+          </div>
+          <a class="project-link" href="https://github.com/srenault93/WebWS" target="_blank">View on GitHub →</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">
+            <svg viewBox="0 0 24 24"><path d="M13 2.05v2.02c3.95.49 7 3.85 7 7.93 0 3.21-1.81 6.1-4.72 7.72L13 17v5h5l-1.22-1.22C19.91 19.07 22 15.76 22 12c0-5.18-3.95-9.45-9-9.95zM11 2.05C5.95 2.55 2 6.82 2 12c0 3.76 2.09 7.07 5.22 8.78L6 22h5V2.05z"/></svg>
+          </div>
+          <div class="project-name">Game Boy Emulator <span style="font-size:11px; color:#C9A84C; letter-spacing:0.06em;">· In Progress</span></div>
+          <p class="project-desc">A Game Boy emulator in development — implementing the LR35902 CPU, memory banking, PPU graphics pipeline, and cartridge support.</p>
+          <div class="project-chips">
+            <span class="chip">C / C++</span>
+            <span class="chip">Emulation</span>
+            <span class="chip">Hardware Simulation</span>
+          </div>
+          <a class="project-link" href="https://github.com/srenault93" target="_blank">View on GitHub →</a>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-header">
+        <h2 class="section-title">Experience</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">2020 — 2024</div>
+        <div>
+          <div class="exp-role">Server &amp; Cook</div>
+          <div class="exp-company">Cinema Café</div>
+          <ul class="exp-bullets">
+            <li>Delivered attentive table service in a fast-paced dine-in theater environment, managing multiple tables simultaneously.</li>
+            <li>Prepared and plated menu items in a high-volume kitchen, maintaining food quality and speed under pressure.</li>
+            <li>Built strong communication and teamwork skills working across front-of-house and back-of-house operations.</li>
+            <li>Developed time-management and multitasking abilities across 3–4 years of consistent employment.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="section-header">
+        <h2 class="section-title">Education</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="edu-card">
+        <div>
+          <div class="edu-degree">Bachelor of Science in Computer Science</div>
+          <div class="edu-school">Christopher Newport University &nbsp;·&nbsp; Expected May 2026</div>
+        </div>
+      </div>
+
+      <div class="course-grid">
+        <div class="course-pill"><strong>CPSC 480 / 280</strong>Software Design &amp; Engineering</div>
+        <div class="course-pill"><strong>CPSC 420</strong>Algorithms</div>
+        <div class="course-pill"><strong>CPSC 410</strong>Operating Systems</div>
+        <div class="course-pill"><strong>CPSC 440</strong>Database Management Systems</div>
+        <div class="course-pill"><strong>CPSC 360</strong>Programming Language Concepts</div>
+        <div class="course-pill"><strong>CPSC 327</strong>C++ Programming</div>
+        <div class="course-pill"><strong>CPSC 270</strong>Data &amp; File Structures</div>
+        <div class="course-pill"><strong>CPSC 250</strong>Programming for Data Manipulation</div>
+        <div class="course-pill"><strong>ENGR 213</strong>Discrete Structures</div>
+        <div class="course-pill"><strong>CPEN 214</strong>Digital Logic Design</div>
+        <div class="course-pill"><strong>MATH 235 / 240</strong>Matrix Techniques &amp; Calculus</div>
+        <div class="course-pill"><strong>PCSE 495</strong>User Interface &amp; UX Design</div>
+      </div>
+
+      <div style="margin-top: 2.5rem;">
+        <p class="subsection-label">Technical Skills</p>
+        <div class="skills-row">
+          <span class="skill-badge">C++</span>
+          <span class="skill-badge">Python</span>
+          <span class="skill-badge">Java</span>
+          <span class="skill-badge">JavaScript</span>
+          <span class="skill-badge">SQL</span>
+          <span class="skill-badge">Git / GitHub</span>
+          <span class="skill-badge">Linux / Unix</span>
+          <span class="skill-badge">Data Structures</span>
+          <span class="skill-badge">Algorithms</span>
+          <span class="skill-badge">OS Concepts</span>
+          <span class="skill-badge">Database Design</span>
+          <span class="skill-badge">Emulation</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    &copy; 2026 Sebastien A. Renault &nbsp;·&nbsp; Christopher Newport University &nbsp;·&nbsp; Computer Science
+  </footer>
+
+</body>
+</html>
