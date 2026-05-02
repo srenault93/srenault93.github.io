@@ -19,6 +19,19 @@
     }
     body { font-family: 'DM Sans', sans-serif; background: var(--off-white); color: var(--text-dark); }
 
+    /* Focus styles — palette-matched, replaces inconsistent browser defaults */
+    *:focus { outline: none; }
+    *:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 2px; }
+
+    /* Respect reduced-motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
     nav {
       background: var(--navy);
       padding: 0 3rem;
@@ -44,7 +57,7 @@
     .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
     .hero-eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
     .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); color: #fff; line-height: 1.15; margin-top: 0.5rem; }
-    .hero-sub { font-size: 15px; color: rgba(255,255,255,0.6); max-width: 540px; line-height: 1.7; margin-top: 0.75rem; }
+    .hero-sub { font-size: 15px; color: rgba(255,255,255,0.78); max-width: 540px; line-height: 1.7; margin-top: 0.75rem; }
     .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1rem; }
     .tag { font-size: 11px; padding: 4px 12px; border: 0.5px solid var(--gold); color: var(--gold-light); letter-spacing: 0.07em; text-transform: uppercase; }
     .hero-links { display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap; }
@@ -59,30 +72,207 @@
     .section-line { flex: 1; height: 0.5px; background: #DDD9CF; }
     .section-title { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--navy); white-space: nowrap; }
 
-    /* FEATURED PROJECT */
-    .featured-card {
+    /* CAPSTONE CASE STUDY */
+    .capstone-case {
       background: var(--navy);
       border: 0.5px solid var(--gold);
       padding: 2rem 2.5rem;
       margin-bottom: 1.25rem;
+    }
+    .capstone-header {
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 0.5px solid rgba(201,168,76,0.2);
+    }
+    .award-badge {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: var(--gold);
+      padding: 5px 14px;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .capstone-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .capstone-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      color: #fff;
+      margin-bottom: 0.75rem;
+    }
+    .capstone-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.75;
+      max-width: 720px;
+    }
+    .capstone-body {
       display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 1.5rem;
+      grid-template-columns: 1fr 300px;
+      gap: 2.5rem;
       align-items: start;
     }
-    .featured-badge { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 0.5rem; }
-    .featured-name { font-family: 'Playfair Display', serif; font-size: 22px; color: #fff; margin-bottom: 0.5rem; }
-    .featured-desc { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 580px; }
-    .featured-decisions { margin-top: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; }
-    .decision { font-size: 12px; color: rgba(255,255,255,0.5); padding-left: 1rem; position: relative; line-height: 1.5; }
-    .decision::before { content: ''; position: absolute; left: 0; top: 7px; width: 5px; height: 0.5px; background: var(--gold); }
+    .case-block { margin-bottom: 1.75rem; }
+    .case-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 0.7rem;
+    }
+    .case-text {
+      font-size: 13px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.75;
+    }
+    .arch-flow {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 0.85rem;
+      padding: 0.75rem 1rem;
+      background: rgba(255,255,255,0.02);
+      border: 0.5px solid rgba(201,168,76,0.3);
+    }
+    .arch-node {
+      font-size: 11px;
+      color: var(--gold-light);
+      padding: 3px 10px;
+      border: 0.5px solid var(--gold);
+      letter-spacing: 0.04em;
+    }
+    .arch-arrow { color: var(--gold); font-size: 14px; }
+    .featured-decisions { display: flex; flex-direction: column; gap: 0.55rem; }
+    .decision {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.78);
+      padding-left: 1rem;
+      position: relative;
+      line-height: 1.65;
+    }
+    .decision::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 5px;
+      height: 0.5px;
+      background: var(--gold);
+    }
     .decision strong { color: var(--gold-light); font-weight: 500; }
+    .eng-detail {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.7;
+      padding: 0.85rem 1rem;
+      border-left: 2px solid var(--gold);
+      background: rgba(255,255,255,0.025);
+      margin-bottom: 0.6rem;
+    }
+    .eng-detail strong { color: var(--gold-light); font-weight: 500; display: block; margin-bottom: 3px; }
+    .outcome-list { list-style: none; padding: 0; }
+    .outcome-list li {
+      font-size: 13px;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.8;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+    .outcome-list li::before {
+      content: '★';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 10px;
+      top: 5px;
+    }
+    .todo-note {
+      color: rgba(232,201,122,0.5);
+      font-size: 11px;
+      font-style: italic;
+      margin-left: 6px;
+    }
     .featured-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1.25rem; }
-    .featured-chip { font-size: 11px; padding: 4px 12px; border: 0.5px solid rgba(201,168,76,0.4); color: var(--gold-light); letter-spacing: 0.04em; }
-    .featured-links { display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-end; }
-    .featured-link { font-size: 12px; color: var(--gold); text-decoration: none; letter-spacing: 0.05em; font-weight: 500; white-space: nowrap; }
+    .featured-chip {
+      font-size: 11px;
+      padding: 4px 12px;
+      border: 0.5px solid rgba(201,168,76,0.4);
+      color: var(--gold-light);
+      letter-spacing: 0.04em;
+    }
+    .capstone-cta {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .featured-link {
+      font-size: 12px;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+      white-space: nowrap;
+    }
     .featured-link:hover { color: var(--gold-light); }
-    .status-pill { font-size: 10px; padding: 3px 10px; border: 0.5px solid var(--gold); color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
+    .status-pill {
+      font-size: 10px;
+      padding: 3px 10px;
+      border: 0.5px solid var(--gold);
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* PHONE FRAMES */
+    .capstone-screens {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      align-items: center;
+      position: sticky;
+      top: 88px;
+    }
+    .phone-frame {
+      background: #000;
+      border: 1px solid var(--gold);
+      border-radius: 30px;
+      padding: 8px 6px;
+      position: relative;
+      width: 100%;
+      box-shadow: 0 12px 36px rgba(0,0,0,0.45);
+    }
+    .phone-primary { max-width: 260px; }
+    .phone-secondary { max-width: 200px; opacity: 0.85; }
+    .phone-notch {
+      width: 45%;
+      height: 16px;
+      background: #000;
+      border-radius: 0 0 12px 12px;
+      position: absolute;
+      top: 0;
+      left: 27.5%;
+      z-index: 2;
+    }
+    .phone-frame img {
+      width: 100%;
+      display: block;
+      border-radius: 22px;
+    }
 
     /* PROJECT GRID */
     .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
@@ -120,14 +310,21 @@
 
     footer { background: var(--navy); color: rgba(255,255,255,0.45); font-size: 12px; text-align: center; padding: 1.5rem; letter-spacing: 0.04em; border-top: 1px solid var(--gold); }
 
+    @media (max-width: 900px) {
+      .capstone-body { grid-template-columns: 1fr; }
+      .capstone-screens { flex-direction: row; justify-content: center; position: static; }
+      .phone-primary { max-width: 220px; }
+      .phone-secondary { max-width: 180px; }
+    }
     @media (max-width: 640px) {
       nav { padding: 0 1.5rem; }
       .hero { padding: 3rem 1.5rem 2.5rem; }
       main { padding: 2rem 1.5rem 3rem; }
+      .capstone-case { padding: 1.5rem 1.5rem; }
       .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
       .projects-grid { grid-template-columns: 1fr; }
-      .featured-card { grid-template-columns: 1fr; }
-      .featured-links { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
+      .capstone-screens { flex-direction: column; align-items: center; }
+      .phone-primary, .phone-secondary { max-width: 220px; }
     }
   </style>
 </head>
@@ -170,32 +367,96 @@
         <div class="section-line"></div>
       </div>
 
-      <!-- FEATURED -->
-      <div class="featured-card">
-        <div>
-          <div class="featured-badge">Featured Project · Senior Capstone 2026</div>
-          <div class="featured-name">AI-Powered News Aggregator</div>
-          <p class="featured-desc">A cross-platform mobile app that delivers personalized, AI-summarized news to users. I served as technical lead for a team of three, making every architecture and infrastructure decision from day one.</p>
-          <div class="featured-decisions">
-            <div class="decision"><strong>Database:</strong> Chose Supabase over Firebase to retain direct SQL schema control and fine-grained auth — designed the full PostgreSQL schema from scratch.</div>
-            <div class="decision"><strong>Cost model:</strong> Engineered the Firecrawl and GPT-4 pipeline so API costs stay flat regardless of user growth — decoupled from scale by design.</div>
-            <div class="decision"><strong>Backend:</strong> Python/FastAPI deployed on Railway with daily cron automation handling fetch, summarization, and database writes end-to-end.</div>
-            <div class="decision"><strong>Frontend:</strong> Flutter — single codebase targeting Android and iOS without needing two separate language stacks.</div>
-          </div>
-          <div class="featured-chips">
-            <span class="featured-chip">Flutter</span>
-            <span class="featured-chip">Python</span>
-            <span class="featured-chip">FastAPI</span>
-            <span class="featured-chip">Supabase</span>
-            <span class="featured-chip">PostgreSQL</span>
-            <span class="featured-chip">Railway</span>
-            <span class="featured-chip">GPT-4</span>
-            <span class="featured-chip">Firecrawl</span>
-          </div>
+      <!-- FEATURED CAPSTONE CASE STUDY -->
+      <div class="capstone-case">
+        <div class="capstone-header">
+          <span class="award-badge">★ People's Choice — CNU 2026 Capstone Fair</span>
+          <div class="capstone-eyebrow">Featured Project · Senior Capstone 2026</div>
+          <h3 class="capstone-name">QuickFeed — AI News Aggregator</h3>
+          <p class="capstone-desc">A cross-platform mobile app that delivers a personalized, AI-summarized daily briefing — not an endless feed. I served as technical lead for a team of three, owning every architecture, infrastructure, and schema decision from day one. The build won People's Choice at the 2026 Capstone Fair, voted across all departments by faculty and students.</p>
         </div>
-        <div class="featured-links">
-          <span class="status-pill">Shipping May 2026</span>
-          <a class="featured-link" href="https://github.com/srenault93/CNU_2026_CAPSTONE" target="_blank">View on GitHub →</a>
+
+        <div class="capstone-body">
+          <div class="capstone-content">
+
+            <div class="case-block">
+              <h4 class="case-label">Problem</h4>
+              <p class="case-text">Most news apps drown the reader in an infinite scroll or hide curation behind a paywall. The goal: deliver the day's signal in a finite, finishable briefing that respects the reader's time — and do it cheaply enough that the unit economics survive growth.</p>
+            </div>
+
+            <div class="case-block">
+              <h4 class="case-label">Architecture</h4>
+              <div class="arch-flow">
+                <span class="arch-node">Firecrawl</span>
+                <span class="arch-arrow">→</span>
+                <span class="arch-node">GPT-4o-mini</span>
+                <span class="arch-arrow">→</span>
+                <span class="arch-node">Supabase</span>
+                <span class="arch-arrow">→</span>
+                <span class="arch-node">Flutter</span>
+              </div>
+              <p class="case-text">A daily Python cron on Railway pulls fresh URLs per topic, scrapes them, summarizes through OpenAI against a strict JSON schema, and writes results to Supabase. The Flutter client only ever reads pre-generated articles — no per-user inference, no per-request LLM calls.</p>
+            </div>
+
+            <div class="case-block">
+              <h4 class="case-label">Key Decisions</h4>
+              <div class="featured-decisions">
+                <div class="decision"><strong>Database:</strong> Chose Supabase over Firebase to retain direct SQL schema control and fine-grained auth — designed the full PostgreSQL schema, indexes, and RLS policies from scratch.</div>
+                <div class="decision"><strong>Cost model:</strong> A Firecrawl + GPT-4o-mini pipeline that scales with topics, not users — API costs stay flat regardless of how many people install the app.</div>
+                <div class="decision"><strong>Backend shape:</strong> A scheduled Python job, not a request-response server. The expensive AI work runs once per topic per day; the app just reads from Supabase.</div>
+                <div class="decision"><strong>Frontend:</strong> Flutter — single Dart codebase targeting Android and iOS without two separate language stacks.</div>
+              </div>
+            </div>
+
+            <div class="case-block">
+              <h4 class="case-label">Engineering Details</h4>
+              <div class="eng-detail">
+                <strong>SIGALRM hard timeout</strong>
+                The cron sets a 10-minute wall-clock alarm so a hung network call can't loop the container forever. Orphaned "running" rows are recovered on the next invocation by a stale-run sweeper.
+              </div>
+              <div class="eng-detail">
+                <strong>Strict JSON schema on model output</strong>
+                OpenAI responses are validated against a Pydantic schema with enums (pov, sentiment) and exact-count constraints (5 key points). Invalid output triggers one retry on truncated content before failing the article — never the whole run.
+              </div>
+            </div>
+
+            <div class="case-block">
+              <h4 class="case-label">Outcomes</h4>
+              <ul class="outcome-list">
+                <li>People's Choice winner at the 2026 Capstone Fair, voted across all departments</li>
+                <li>Pending Google Play Store publication</li>
+                <li>[X] active topics supported &middot; [Y]-hour refresh cadence <span class="todo-note">← fill in</span></li>
+              </ul>
+            </div>
+
+            <div class="featured-chips">
+              <span class="featured-chip">Flutter</span>
+              <span class="featured-chip">Python</span>
+              <span class="featured-chip">Supabase</span>
+              <span class="featured-chip">PostgreSQL</span>
+              <span class="featured-chip">Railway</span>
+              <span class="featured-chip">GPT-4o-mini</span>
+              <span class="featured-chip">Firecrawl</span>
+              <span class="featured-chip">Pydantic</span>
+            </div>
+
+            <div class="capstone-cta">
+              <span class="status-pill">Shipping May 2026</span>
+              <a class="featured-link" href="https://github.com/srenault93/CNU_2026_CAPSTONE" target="_blank">View on GitHub →</a>
+            </div>
+
+          </div>
+
+          <div class="capstone-screens">
+            <div class="phone-frame phone-primary">
+              <div class="phone-notch"></div>
+              <img src="images/screenshot-briefing.png" width="1080" height="2316" alt="Daily briefing screen — What Happened Today, with three top stories" />
+            </div>
+            <div class="phone-frame phone-secondary">
+              <div class="phone-notch"></div>
+              <img src="images/screenshot-welcome.jpeg" width="1080" height="2181" alt="Welcome screen with personalized greeting and swipe-down for today's news" />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -286,7 +547,6 @@
           <span class="skill-badge">SQL</span>
           <span class="skill-badge">HTML / CSS</span>
           <span class="skill-badge">Flutter</span>
-          <span class="skill-badge">FastAPI</span>
           <span class="skill-badge">Supabase</span>
           <span class="skill-badge">PostgreSQL</span>
           <span class="skill-badge">Railway</span>
