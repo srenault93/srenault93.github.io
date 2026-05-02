@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sebastien A. Renault — Portfolio</title>
+  <title>Sebastien A. Renault | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -19,7 +19,7 @@
     }
     body { font-family: 'DM Sans', sans-serif; background: var(--off-white); color: var(--text-dark); }
 
-    /* Focus styles — palette-matched, replaces inconsistent browser defaults */
+    /* Focus styles, palette-matched, replaces inconsistent browser defaults */
     *:focus { outline: none; }
     *:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 2px; }
 
@@ -297,7 +297,7 @@
     .exp-company { font-size: 13px; color: var(--gold); margin: 2px 0 8px; font-weight: 400; }
     .exp-bullets { list-style: none; padding: 0; }
     .exp-bullets li { font-size: 13px; color: var(--text-muted); line-height: 1.6; padding-left: 16px; position: relative; margin-bottom: 4px; }
-    .exp-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-size: 11px; }
+    .exp-bullets li::before { content: '·'; position: absolute; left: 0; color: var(--gold); font-size: 16px; line-height: 1; top: 2px; }
 
     /* EDUCATION */
     .edu-card { background: #fff; border: 0.5px solid #DDD9CF; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; }
@@ -345,7 +345,7 @@
     <div class="hero-inner">
       <p class="hero-eyebrow">Software Engineer &amp; CS Graduate 2026</p>
       <h1 class="hero-name">Sebastien A.<br>Renault</h1>
-      <p class="hero-sub">CS student at Christopher Newport University graduating May 2026. I design and ship full-stack systems — most recently an AI-powered news platform built with Flutter, Python, and Supabase, leading all architecture decisions for a team of three. Bilingual in English and French.</p>
+      <p class="hero-sub">CS student at Christopher Newport University graduating May 2026. I design and ship full-stack systems. My most recent is an AI-powered news platform built with Flutter, Python, and Supabase, where I led architecture for a team of three. Bilingual in English and French.</p>
       <div class="hero-tags">
         <span class="tag">Full-Stack</span>
         <span class="tag">System Design</span>
@@ -372,10 +372,10 @@
       <!-- FEATURED CAPSTONE CASE STUDY -->
       <div class="capstone-case">
         <div class="capstone-header">
-          <span class="award-badge">★ People's Choice — CNU 2026 Capstone Fair</span>
+          <span class="award-badge">★ People's Choice &middot; CNU 2026 Capstone Fair</span>
           <div class="capstone-eyebrow">Featured Project · Senior Capstone 2026</div>
-          <h3 class="capstone-name">QuickFeed — AI News Aggregator</h3>
-          <p class="capstone-desc">A cross-platform mobile app that delivers a personalized, AI-summarized daily briefing — not an endless feed. I served as technical lead for a team of three, owning every architecture, infrastructure, and schema decision from day one. The build won People's Choice at the 2026 Capstone Fair, voted across all departments by faculty and students.</p>
+          <h3 class="capstone-name">QuickFeed: AI News Aggregator</h3>
+          <p class="capstone-desc">A cross-platform mobile app that delivers a personalized, AI-summarized daily briefing instead of an endless feed. I led the technical side for a team of three, owning the stack, schema, and architecture from the start. The build won People's Choice at the 2026 Capstone Fair, voted across all departments by faculty and students.</p>
         </div>
 
         <div class="capstone-body">
@@ -383,7 +383,7 @@
 
             <div class="case-block">
               <h4 class="case-label">Problem</h4>
-              <p class="case-text">Most news apps drown the reader in an infinite scroll or hide curation behind a paywall. The goal: deliver the day's signal in a finite, finishable briefing that respects the reader's time — and do it cheaply enough that the unit economics survive growth.</p>
+              <p class="case-text">Most news apps drown the reader in infinite scroll or hide curation behind a paywall. The goal: deliver the day's signal in a finite, finishable briefing that respects the reader's time. And do it cheaply enough that the unit economics survive growth.</p>
             </div>
 
             <div class="case-block">
@@ -397,16 +397,16 @@
                 <span class="arch-arrow">→</span>
                 <span class="arch-node">Flutter</span>
               </div>
-              <p class="case-text">A daily Python cron on Railway pulls fresh URLs per topic, scrapes them, summarizes through OpenAI against a strict JSON schema, and writes results to Supabase. The Flutter client only ever reads pre-generated articles — no per-user inference, no per-request LLM calls.</p>
+              <p class="case-text">A daily Python cron on Railway pulls fresh URLs per topic, scrapes them, summarizes through OpenAI against a strict JSON schema, and writes results to Supabase. The Flutter client only ever reads pre-generated articles. No per-user inference, no per-request LLM calls.</p>
             </div>
 
             <div class="case-block">
               <h4 class="case-label">Key Decisions</h4>
               <div class="featured-decisions">
-                <div class="decision"><strong>Database:</strong> Chose Supabase over Firebase to retain direct SQL schema control and fine-grained auth — designed the full PostgreSQL schema, indexes, and RLS policies from scratch.</div>
-                <div class="decision"><strong>Cost model:</strong> A Firecrawl + GPT-4o-mini pipeline that scales with topics, not users — API costs stay flat regardless of how many people install the app.</div>
+                <div class="decision"><strong>Database:</strong> Chose Supabase over Firebase to keep direct SQL schema control and fine-grained auth. Designed the PostgreSQL schema, indexes, and RLS policies from scratch.</div>
+                <div class="decision"><strong>Cost model:</strong> A Firecrawl + GPT-4o-mini pipeline that scales with topics, not users. API costs stay flat regardless of how many people install the app.</div>
                 <div class="decision"><strong>Backend shape:</strong> A scheduled Python job, not a request-response server. The expensive AI work runs once per topic per day; the app just reads from Supabase.</div>
-                <div class="decision"><strong>Frontend:</strong> Flutter — single Dart codebase targeting Android and iOS without two separate language stacks.</div>
+                <div class="decision"><strong>Frontend:</strong> Flutter. A single Dart codebase targeting Android and iOS without two separate language stacks.</div>
               </div>
             </div>
 
@@ -418,7 +418,7 @@
               </div>
               <div class="eng-detail">
                 <strong>Strict JSON schema on model output</strong>
-                OpenAI responses are validated against a Pydantic schema with enums (pov, sentiment) and exact-count constraints (5 key points). Invalid output triggers one retry on truncated content before failing the article — never the whole run.
+                OpenAI responses are validated against a Pydantic schema with enums (pov, sentiment) and exact-count constraints (5 key points). Invalid output triggers one retry on truncated content. If that fails, only the article is dropped, never the whole run.
               </div>
             </div>
 
@@ -427,7 +427,7 @@
               <ul class="outcome-list">
                 <li>People's Choice winner at the 2026 Capstone Fair, voted across all departments</li>
                 <li>Pending Google Play Store publication</li>
-                <li>[X] active topics supported &middot; [Y]-hour refresh cadence <span class="todo-note">← fill in</span></li>
+                <li>15 active topics &middot; 15 topics total</li>
               </ul>
             </div>
 
@@ -452,7 +452,7 @@
           <div class="capstone-screens">
             <div class="phone-frame phone-primary">
               <div class="phone-notch"></div>
-              <img src="images/screenshot-briefing.png" width="1080" height="2316" alt="Daily briefing screen — What Happened Today, with three top stories" />
+              <img src="images/screenshot-briefing.png" width="1080" height="2316" alt="Daily briefing screen showing What Happened Today with three top stories" />
             </div>
             <div class="phone-frame phone-secondary">
               <div class="phone-notch"></div>
@@ -470,7 +470,7 @@
             <svg viewBox="0 0 24 24"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm7 14l7-7-1.4-1.4L12 14.2l-3.6-3.6L7 12l5 5z"/></svg>
           </div>
           <div class="project-name">CHIP-8 Interpreter</div>
-          <p class="project-desc">A complete CHIP-8 virtual machine built in C++ — implements the full fetch-decode-execute CPU cycle, all 35 opcodes, memory layout, display subsystem, and keyboard input to run original ROMs.</p>
+          <p class="project-desc">A complete CHIP-8 virtual machine in C++. Implements the fetch-decode-execute CPU cycle, all 35 opcodes, memory layout, display subsystem, and keyboard input to run original ROMs.</p>
           <div class="project-chips">
             <span class="chip">C++</span>
             <span class="chip">Makefile</span>
@@ -484,7 +484,7 @@
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 11H7v-2h8v2zm3-4H7V9h11v2z"/></svg>
           </div>
           <div class="project-name">Personal Portfolio</div>
-          <p class="project-desc">This site — designed and deployed from scratch using HTML and CSS with a focus on clean typography and layout.</p>
+          <p class="project-desc">This site. Built from scratch with HTML and CSS. No frameworks, no build step.</p>
           <div class="project-chips">
             <span class="chip">HTML</span>
             <span class="chip">CSS</span>
@@ -501,14 +501,14 @@
         <div class="section-line"></div>
       </div>
       <div class="exp-item">
-        <div class="exp-date">2022 — Present</div>
+        <div class="exp-date">2022 to Present</div>
         <div>
           <div class="exp-role">Server &amp; Cook</div>
           <div class="exp-company">Cinema Café</div>
           <ul class="exp-bullets">
-            <li>Maintained performance under high-volume conditions across kitchen and front-of-house roles simultaneously for over three years.</li>
-            <li>Trained new team members and coordinated between kitchen and service staff in a fast-paced environment.</li>
-            <li>Developed consistent communication and reliability habits working across cross-functional teams under pressure.</li>
+            <li>Worked across kitchen and front-of-house roles for over three years in a high-volume restaurant.</li>
+            <li>Trained new team members and kept service moving through dinner rushes.</li>
+            <li>Practiced clear communication and reliability under sustained time pressure.</li>
           </ul>
         </div>
       </div>
