@@ -1,0 +1,84 @@
+.edu-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg, rgba(232, 176, 75, 0.05), transparent 45%),
+    var(--ink-800);
+}
+.edu-degree {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(1.4rem, 3.5vw, 2.1rem);
+  color: var(--cream);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+.edu-school {
+  font-size: 1rem;
+  color: var(--gold);
+  margin: 0.7rem 0 0.3rem;
+}
+.edu-detail {
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+}
+.edu-badge {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(1.5rem, 5vw, 2.6rem);
+  color: transparent;
+  -webkit-text-stroke: 1px var(--gold-deep);
+  flex-shrink: 0;
+}
+
+.edu-sub { margin: 2.75rem 0 1.1rem; }
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.6rem;
+}
+.course-pill {
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--ink-800);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  transition: border-color 0.25s, transform 0.25s var(--ease);
+}
+.course-pill:hover { border-color: var(--gold-deep); transform: translateY(-2px); }
+.course-pill strong {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--gold-bright);
+  margin-bottom: 0.3rem;
+}
+
+.skills-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.skill-badge {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  transition: color 0.25s, border-color 0.25s, background 0.25s, transform 0.25s var(--ease);
+}
+.skill-badge:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+  background: var(--gold-glow);
+  transform: translateY(-2px);
+}

@@ -1,0 +1,183 @@
+.hero {
+  position: relative;
+  min-height: clamp(620px, 92vh, 980px);
+  display: flex;
+  align-items: center;
+  padding-block: 7rem 4rem;
+  overflow: hidden;
+}
+
+/* Faint perspective grid floor */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(120% 90% at 70% 10%, #000 10%, transparent 70%);
+  -webkit-mask-image: radial-gradient(120% 90% at 70% 10%, #000 10%, transparent 70%);
+  opacity: 0.5;
+}
+
+.hero-inner { position: relative; }
+
+.hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.6rem;
+}
+.hero-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 0 var(--gold);
+  animation: pulse 2.4s infinite;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(232, 176, 75, 0.5); }
+  70% { box-shadow: 0 0 0 9px rgba(232, 176, 75, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(232, 176, 75, 0); }
+}
+
+.hero-name {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(3.4rem, 14vw, 9.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  color: var(--cream);
+  margin-bottom: 1.6rem;
+}
+.hero-name span { display: block; }
+.hero-name-2 {
+  color: transparent;
+  -webkit-text-stroke: 1.4px var(--gold);
+  position: relative;
+}
+.hero-name-mark {
+  color: var(--gold);
+  -webkit-text-stroke: 0;
+  font-style: normal;
+}
+
+.hero-tagline {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.15rem, 2.6vw, 1.7rem);
+  color: var(--text);
+  max-width: 30ch;
+  line-height: 1.35;
+  margin-bottom: 1.4rem;
+}
+
+.hero-bio {
+  font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+  color: var(--text-muted);
+  max-width: 56ch;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2.4rem;
+}
+.hero-tag {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+  transition: border-color 0.25s, color 0.25s, transform 0.25s var(--ease);
+}
+.hero-tag:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Buttons (shared) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  padding: 0.8rem 1.5rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.25s var(--ease), background 0.25s, color 0.25s, border-color 0.25s;
+}
+.btn svg { transition: transform 0.25s var(--ease); }
+.btn:hover svg { transform: translate(2px, -2px); }
+.btn-primary {
+  background: var(--gold);
+  color: var(--ink-900);
+  font-weight: 500;
+  border: 1px solid var(--gold);
+}
+.btn-primary:hover {
+  background: var(--gold-bright);
+  border-color: var(--gold-bright);
+  transform: translateY(-2px);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line-strong);
+}
+.btn-ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+/* Scroll cue */
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.hero-scroll-line {
+  width: 1px;
+  height: 42px;
+  background: linear-gradient(var(--gold), transparent);
+  animation: scrollPulse 2s var(--ease) infinite;
+  transform-origin: top;
+}
+@keyframes scrollPulse {
+  0%, 100% { transform: scaleY(0.4); opacity: 0.4; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+
+@media (max-width: 600px) {
+  .hero-scroll { display: none; }
+  .hero { min-height: auto; padding-block: 6rem 3rem; }
+}

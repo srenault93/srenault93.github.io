@@ -1,0 +1,23 @@
+.notfound {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+.notfound-inner { text-align: center; padding-block: 6rem; }
+.notfound-code {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(5rem, 18vw, 11rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--gold-deep);
+}
+.notfound-title {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(1.6rem, 5vw, 2.6rem);
+  color: var(--cream);
+  margin: 0.5rem 0 0.75rem;
+}
+.notfound-text { color: var(--text-muted); margin-bottom: 2rem; }
+.notfound .btn { margin: 0 auto; }

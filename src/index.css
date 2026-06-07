@@ -1,0 +1,163 @@
+/* ============================================================
+   Design system — dark editorial-technical
+   ============================================================ */
+:root {
+  /* Ink */
+  --ink-900: #07070a;
+  --ink-800: #0a0a0d;
+  --ink-700: #101015;
+  --ink-600: #16161d;
+  --ink-500: #1e1e27;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.16);
+
+  /* Gold / amber accent */
+  --gold: #e8b04b;
+  --gold-bright: #f6d488;
+  --gold-deep: #b8862f;
+  --gold-glow: rgba(232, 176, 75, 0.16);
+
+  /* Text */
+  --cream: #f4f1ea;
+  --text: #e7e4dc;
+  --text-muted: #9a978f;
+  --text-faint: #6c6a64;
+
+  /* Type */
+  --display: 'Fraunces', Georgia, serif;
+  --body: 'Hanken Grotesk', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --maxw: 1180px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--body);
+  background: var(--ink-900);
+  color: var(--text);
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: auto;
+}
+
+/* Atmospheric background: layered amber glow + grain */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(900px 600px at 78% -8%, var(--gold-glow), transparent 60%),
+    radial-gradient(700px 700px at -10% 30%, rgba(232, 176, 75, 0.05), transparent 55%),
+    radial-gradient(1000px 800px at 50% 120%, rgba(232, 176, 75, 0.06), transparent 60%);
+  pointer-events: none;
+}
+
+/* Film grain overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--ink-900);
+}
+
+/* Focus */
+*:focus { outline: none; }
+*:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---- Shared layout helpers ---- */
+.shell {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding-inline: clamp(1.25rem, 4vw, 3.5rem);
+}
+
+.section {
+  position: relative;
+  padding-block: clamp(4rem, 9vw, 7.5rem);
+}
+
+/* Section heading: oversized index + serif title */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+.section-index {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  padding-top: 0.4rem;
+  white-space: nowrap;
+}
+.section-title {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 5.5vw, 3.1rem);
+  line-height: 1;
+  color: var(--cream);
+  letter-spacing: -0.01em;
+}
+.section-rule {
+  flex: 1;
+  height: 1px;
+  align-self: center;
+  background: linear-gradient(to right, var(--line-strong), transparent);
+}
+
+/* Mono eyebrow label */
+.kicker {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

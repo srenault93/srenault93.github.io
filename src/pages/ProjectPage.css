@@ -1,0 +1,237 @@
+.project {
+  padding-top: clamp(3rem, 7vw, 5rem);
+  padding-bottom: clamp(4rem, 8vw, 6rem);
+  min-height: 80vh;
+}
+
+.proj-back {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+  transition: color 0.2s, transform 0.2s var(--ease);
+}
+.proj-back:hover { color: var(--gold); transform: translateX(-3px); }
+
+/* Hero */
+.proj-hero { max-width: 760px; margin-bottom: clamp(3rem, 7vw, 5rem); }
+.proj-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1rem;
+  margin-bottom: 1.3rem;
+}
+.proj-hero-mono {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  padding-right: 1rem;
+  border-right: 1px solid var(--line);
+}
+.proj-hero-mono:last-child { border-right: none; }
+.proj-hero .proj-flag {
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold-deep);
+  border-radius: 999px;
+  padding: 0.22rem 0.7rem;
+}
+.proj-hero-name {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(2.6rem, 8vw, 5rem);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  color: var(--cream);
+  margin-bottom: 1rem;
+}
+.proj-hero-tagline {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+  color: var(--gold);
+  margin-bottom: 1.2rem;
+}
+.proj-hero-desc {
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 1.8rem;
+}
+.proj-hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.8rem; }
+.proj-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+/* Sections */
+.proj-section { margin-bottom: clamp(3rem, 7vw, 4.5rem); }
+.proj-h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  color: var(--cream);
+  letter-spacing: -0.01em;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+.proj-h2-i {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+}
+
+/* Video demo */
+.demo-video,
+.demo-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: var(--ink-800);
+}
+.demo-video { object-fit: cover; display: block; }
+.demo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  text-align: center;
+  background:
+    radial-gradient(500px 300px at 50% 40%, var(--gold-glow), transparent 70%),
+    repeating-linear-gradient(45deg, transparent 0 18px, rgba(255,255,255,0.012) 18px 36px),
+    var(--ink-800);
+}
+.demo-play {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--gold-deep);
+  color: var(--gold);
+  font-size: 1.2rem;
+  padding-left: 4px;
+  margin-bottom: 0.4rem;
+}
+.demo-title { font-family: var(--display); font-size: 1.3rem; color: var(--cream); }
+.demo-note { font-size: 0.88rem; color: var(--text-faint); max-width: 36ch; }
+
+/* Highlights */
+.proj-highlights { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+.proj-highlights li {
+  position: relative;
+  padding: 1rem 1.2rem 1rem 2.4rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--ink-800);
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+.proj-highlights li::before {
+  content: '→';
+  position: absolute;
+  left: 1.1rem;
+  top: 1rem;
+  color: var(--gold);
+}
+
+/* Screens */
+.proj-screens {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+.proj-screens img {
+  width: 200px;
+  border-radius: 18px;
+  border: 1px solid var(--line-strong);
+  background: #000;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Supporting */
+.proj-supporting { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.proj-supporting a {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--gold);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 0.55rem 1.1rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.proj-supporting a:hover { border-color: var(--gold); background: var(--gold-glow); }
+
+/* README card — terminal frame */
+.proj-readme-card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--ink-800);
+}
+.proj-readme-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.1rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--ink-700);
+}
+.proj-readme-bar .dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--ink-500);
+}
+.proj-readme-bar .dot:nth-child(1) { background: #e06c5e; }
+.proj-readme-bar .dot:nth-child(2) { background: #e0b24c; }
+.proj-readme-bar .dot:nth-child(3) { background: #6cb46c; }
+.proj-readme-path {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--text-faint);
+  margin-left: 0.6rem;
+}
+.proj-readme-inner { padding: clamp(1.25rem, 4vw, 2.5rem); }
+
+/* Next project */
+.proj-next {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 2rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--ink-800);
+  transition: border-color 0.3s, transform 0.3s var(--ease), background 0.3s;
+}
+.proj-next:hover { border-color: var(--gold-deep); transform: translateY(-3px); background: var(--ink-700); }
+.proj-next-label {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.proj-next-name {
+  font-family: var(--display);
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  color: var(--cream);
+}
+.proj-next:hover .proj-next-name { color: var(--gold); }
+
+@media (max-width: 480px) {
+  .proj-screens img { width: 45%; min-width: 130px; }
+}
