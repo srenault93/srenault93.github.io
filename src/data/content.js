@@ -6,7 +6,7 @@ export const profile = {
   role: 'Software Engineer & CS Graduate 2026',
   tagline:
     'I design and ship full-stack systems — from PostgreSQL schemas to cross-platform clients.',
-  bio: 'CS student at Christopher Newport University graduating May 2026. My most recent build is an AI-powered news platform on Flutter, Python, and Supabase, where I led architecture for a team of three. Bilingual in English and French.',
+  bio: 'Computer Science graduate of Christopher Newport University (May 2026). My most recent build is an AI-powered news platform on Flutter, Python, and Supabase, where I led architecture for a team of three. Bilingual in English and French.',
   tags: ['Full-Stack', 'System Design', 'Python', 'Flutter', 'AI Integration'],
   links: {
     github: 'https://github.com/srenault93',
@@ -20,7 +20,7 @@ export const capstone = {
   eyebrow: 'Featured · Senior Capstone 2026',
   name: 'QuickFeed',
   subtitle: 'AI News Aggregator',
-  status: 'Shipping May 2026',
+  status: 'Pending Play Store review',
   repo: 'https://github.com/srenault93/CNU_2026_CAPSTONE',
   summary:
     'A cross-platform mobile app that delivers a personalized, AI-summarized daily briefing instead of an endless feed. I led the technical side for a team of three, owning the stack, schema, and architecture from day one. It won People’s Choice at the 2026 Capstone Fair, voted across every department by faculty and students.',
@@ -212,7 +212,7 @@ export const experience = [
 export const education = {
   degree: 'Bachelor of Science in Computer Science',
   school: 'Christopher Newport University',
-  detail: 'Expected May 2026 · Bilingual: English & French',
+  detail: 'Graduated May 2026 · Bilingual: English & French',
   courses: [
     { code: 'CPSC 480 / 280', name: 'Software Design & Engineering' },
     { code: 'CPSC 420', name: 'Algorithms' },
