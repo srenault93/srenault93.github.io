@@ -7,22 +7,15 @@ import './ProjectPage.css'
 
 const ease = [0.22, 1, 0.36, 1]
 
-function VideoDemo({ project }) {
+function Demo({ project }) {
   if (project.demoGif) {
-    return <img className="demo-gif" src={project.demoGif} alt={`${project.name} gameplay`} />
-  }
-  if (project.video) {
-    return (
-      <video className="demo-video" controls playsInline poster={project.screens?.[0]?.src}>
-        <source src={project.video} type="video/mp4" />
-      </video>
-    )
+    return <img className="demo-gif" src={project.demoGif} alt={`${project.name} demo`} />
   }
   return (
-    <div className="demo-placeholder" role="img" aria-label="Demo video coming soon">
+    <div className="demo-placeholder" role="img" aria-label="Demo coming soon">
       <span className="demo-play" aria-hidden>▶</span>
-      <p className="demo-title">Demo video coming soon</p>
-      <p className="demo-note">A recorded walkthrough of {project.name} running will live here.</p>
+      <p className="demo-title">Demo coming soon</p>
+      <p className="demo-note">A short clip of {project.name} running will live here.</p>
     </div>
   )
 }
@@ -81,7 +74,7 @@ export default function ProjectPage() {
 
         <section className="proj-section">
           <h2 className="proj-h2"><span className="proj-h2-i">01</span> Demo</h2>
-          <VideoDemo project={project} />
+          <Demo project={project} />
         </section>
 
         {project.highlights?.length > 0 && (

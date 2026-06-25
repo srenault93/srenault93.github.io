@@ -80,7 +80,7 @@ export const githubUser = 'srenault93'
 
 // Every project that gets its own detail page (/project/:slug).
 // `repo` is the GitHub repo name — its README is fetched live at runtime.
-// `video` is a path under /public (e.g. '/videos/quickfeed.mp4'); null → placeholder.
+// `demoGif` is a path under /public (e.g. '/images/chip8-demo.gif'); omit → placeholder.
 // `highlights` are short editable bullets shown above the README.
 export const projectList = [
   {
@@ -94,7 +94,6 @@ export const projectList = [
     repo: 'CNU_2026_CAPSTONE',
     repoUrl: 'https://github.com/srenault93/CNU_2026_CAPSTONE',
     liveUrl: null,
-    video: null,
     desc: 'A cross-platform mobile app that delivers a personalized, AI-summarized daily briefing instead of an endless feed. Won People’s Choice at the 2026 CNU Capstone Fair.',
     stack: ['Flutter', 'Python', 'Supabase', 'PostgreSQL', 'Railway', 'GPT-4o-mini', 'Firecrawl', 'Pydantic'],
     highlights: [
@@ -123,7 +122,6 @@ export const projectList = [
     repo: 'GB-Emulator',
     repoUrl: 'https://github.com/srenault93/GB-Emulator',
     liveUrl: null,
-    video: null,
     desc: 'An emulator for the original Game Boy — CPU, memory map, and graphics — written from scratch in C++ to run real cartridge ROMs.',
     stack: ['C++', 'Emulation', 'Systems Programming'],
     highlights: [
@@ -143,7 +141,6 @@ export const projectList = [
     repo: 'Chip-8-Emulator',
     repoUrl: 'https://github.com/srenault93/Chip-8-Emulator',
     liveUrl: null,
-    video: null,
     demoGif: '/images/chip8-demo.gif',
     desc: 'A CHIP-8 virtual machine implementing the fetch-decode-execute cycle, all 35 opcodes, the display subsystem, and keypad input to run original ROMs.',
     stack: ['C++', 'Makefile', 'Systems Programming'],
@@ -166,7 +163,6 @@ export const projectList = [
     repo: 'asteroids-pygame',
     repoUrl: 'https://github.com/srenault93/asteroids-pygame',
     liveUrl: null,
-    video: null,
     desc: 'A from-scratch Asteroids clone in Python and PyGame — thrust-based ship physics, screen wrap-around, asteroids that split when shot, particle explosions, scoring, lives, and escalating waves.',
     stack: ['Python', 'PyGame', 'SDL2', 'Game Development'],
     highlights: [
@@ -189,7 +185,6 @@ export const projectList = [
     repo: 'starfall-godot',
     repoUrl: 'https://github.com/srenault93/starfall-godot',
     liveUrl: null,
-    video: null,
     desc: 'A from-scratch arcade dodge game in Godot 4 and GDScript — steer a ship through an accelerating stream of falling blocks, with the spawn rate and fall speed ramping up the longer you survive.',
     stack: ['Godot 4', 'GDScript', 'Game Development'],
     highlights: [
@@ -211,7 +206,6 @@ export const projectList = [
     repo: 'Francisco-portfolio',
     repoUrl: 'https://github.com/srenault93/Francisco-portfolio',
     liveUrl: 'https://srenault93.github.io/Francisco-portfolio',
-    video: null,
     desc: 'A personal portfolio site designed and built for a friend — turning someone else’s story into a clean, responsive web presence.',
     stack: ['HTML', 'CSS', 'Web Design'],
     highlights: [
@@ -230,7 +224,6 @@ export const projectList = [
     repo: 'srenault93.github.io',
     repoUrl: 'https://github.com/srenault93/srenault93.github.io',
     liveUrl: 'https://srenault93.github.io',
-    video: null,
     desc: 'A React + Vite portfolio with hand-written CSS, motion-driven interactions, client-side routing, and a GitHub Actions deploy pipeline.',
     stack: ['React', 'Vite', 'CSS', 'Motion', 'GitHub Actions'],
     highlights: [

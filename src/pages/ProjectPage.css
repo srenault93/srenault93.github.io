@@ -90,8 +90,7 @@
   letter-spacing: 0.1em;
 }
 
-/* Video demo */
-.demo-video,
+/* Demo placeholder (shown until a project has a demo GIF) */
 .demo-placeholder {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -99,7 +98,6 @@
   border: 1px solid var(--line);
   background: var(--ink-800);
 }
-.demo-video { object-fit: cover; display: block; }
 
 /* GIF demo — sized to its natural aspect ratio so nothing gets cropped */
 .demo-gif {
