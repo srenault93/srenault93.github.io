@@ -143,7 +143,7 @@ export const projectList = [
     repo: 'Chip-8-Emulator',
     repoUrl: 'https://github.com/srenault93/Chip-8-Emulator',
     liveUrl: null,
-    video: null,
+    video: '/videos/chip8.mp4',
     desc: 'A CHIP-8 virtual machine implementing the fetch-decode-execute cycle, all 35 opcodes, the display subsystem, and keypad input to run original ROMs.',
     stack: ['C++', 'Makefile', 'Systems Programming'],
     highlights: [
@@ -151,7 +151,9 @@ export const projectList = [
       'Models the 4K memory layout, registers, stack, timers, and 64×32 display.',
       'Maps the 16-key hex keypad to keyboard input to play classic ROMs.',
     ],
-    screens: [],
+    screens: [
+      { src: '/images/chip8.png', alt: 'CHIP-8 emulator running a test ROM with green-phosphor display and on-screen keypad' },
+    ],
   },
   {
     slug: 'asteroids',
