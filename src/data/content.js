@@ -172,7 +172,9 @@ export const projectList = [
       'Procedurally generated jagged asteroids that split into smaller rocks on impact.',
       'Built on the same SDL2 layer as my Game Boy and CHIP-8 emulators.',
     ],
-    screens: [],
+    screens: [
+      { src: '/images/asteroids.png', alt: 'Vector Asteroids gameplay — ship firing through a field of asteroids' },
+    ],
   },
   {
     slug: 'starfall',
@@ -192,7 +194,9 @@ export const projectList = [
       'Difficulty scales with survival time — spawn interval and fall speed both ramp continuously.',
       'Immediate-mode rendering in _draw() with Rect2-based collision; no external art assets.',
     ],
-    screens: [],
+    screens: [
+      { src: '/images/starfall.png', alt: 'Starfall gameplay — ship dodging falling blocks' },
+    ],
   },
   {
     slug: 'francisco-portfolio',
