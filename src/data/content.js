@@ -143,7 +143,8 @@ export const projectList = [
     repo: 'Chip-8-Emulator',
     repoUrl: 'https://github.com/srenault93/Chip-8-Emulator',
     liveUrl: null,
-    video: '/videos/chip8.mp4',
+    video: null,
+    demoGif: '/images/chip8-demo.gif',
     desc: 'A CHIP-8 virtual machine implementing the fetch-decode-execute cycle, all 35 opcodes, the display subsystem, and keypad input to run original ROMs.',
     stack: ['C++', 'Makefile', 'Systems Programming'],
     highlights: [

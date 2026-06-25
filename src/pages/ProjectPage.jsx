@@ -8,6 +8,9 @@ import './ProjectPage.css'
 const ease = [0.22, 1, 0.36, 1]
 
 function VideoDemo({ project }) {
+  if (project.demoGif) {
+    return <img className="demo-gif" src={project.demoGif} alt={`${project.name} gameplay`} />
+  }
   if (project.video) {
     return (
       <video className="demo-video" controls playsInline poster={project.screens?.[0]?.src}>
